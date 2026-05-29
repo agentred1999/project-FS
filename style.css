@@ -964,3 +964,37 @@ footer {
     width: 100%;
   }
 }
+
+/* Testimonials responsive fix */
+#testimonials .row {
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  #testimonials .row {
+    flex-direction: column;
+  }
+  .testimonial__description--img {
+    width: 100%;
+  }
+  .testimonials-row {
+    width: 100%;
+  }
+}
+
+/* Testimonials responsive fix */
+#testimonials .row {
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  #testimonials .row {
+    flex-direction: column;
+  }
+  .testimonial__description--img {
+    width: 100%;
+  }
+  .testimonials-row {
+    width: 100%;
+  }
+}
