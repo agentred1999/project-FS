@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Security: Prevent XSS and clickjacking -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <title>Treact</title>
     <link rel="stylesheet" href="style.css" />
+    
+    <!-- Security: Subresource Integrity for external scripts (add hash when you have one) -->
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -16,14 +26,16 @@
           Treact
         </div>
         <div class="nav-links">
+          <!-- Security: href anchors only, no javascript: URLs -->
           <a href="#features">About</a>
           <a href="#quality">Blog</a>
           <a href="#pricing">Pricing</a>
           <a href="#start">Contact Us</a>
-          <a href="#" id="login-link">Login</a>
-          <a href="#" id="signup-link" class="btn-primary">Sign Up</a>
+          <!-- Security: Login/Signup should go to real auth pages, not # -->
+          <a href="/login" id="login-link">Login</a>
+          <a href="/signup" id="signup-link" class="btn-primary">Sign Up</a>
         </div>
-        <button class="btn__menu" onclick="openMenu()">
+        <button class="btn__menu" onclick="openMenu()" aria-label="Open menu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -43,8 +55,8 @@
       </div>
     </nav>
 
-    <div class="modal">
-      <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+    <div class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <button class="btn__menu btn__menu--close" onclick="closeMenu()" aria-label="Close menu">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -65,10 +77,8 @@
         <a href="#quality" class="modal__link">Blog</a>
         <a href="#pricing" class="modal__link">Pricing</a>
         <a href="#start" class="modal__link">Contact Us</a>
-        <a href="#" class="modal__link" id="modal-login">Login</a>
-        <a href="#" class="modal__link modal__link--primary" id="modal-signup"
-          >Sign Up</a
-        >
+        <a href="/login" class="modal__link" id="modal-login">Login</a>
+        <a href="/signup" class="modal__link modal__link--primary" id="modal-signup">Sign Up</a>
       </div>
     </div>
 
@@ -83,23 +93,28 @@
             modular components with a variety of pages and components.
           </p>
           <div class="email-form">
+            <!-- Security: Input validation attributes -->
             <input
               type="email"
               id="email-input"
+              name="email"
               placeholder="Your E-mail Address"
+              required
+              maxlength="254"
+              autocomplete="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
-            <button id="get-started-btn">Get Started</button>
+            <button type="submit" id="get-started-btn">Get Started</button>
           </div>
           <div class="trusted">
             <span>Our Trusted Customers</span>
             <div class="trusted-logos">
-              <img src="./assets/customers-logo-strip.680ac7c2e8ae28161d2c.png" alt="" />
+              <img src="./assets/customers-logo.png" alt="Trusted customer logos" loading="lazy" />
             </div>
           </div>
         </div>
         <div class="header-right">
-          <!-- <div class="header-img-placeholder">Hero Illustration</div> -->
-          <img src="./assets/prototype-illustration.21bc4b3f612a2f257c3d361067582485.svg" alt="" />
+          <img src="./assets/design-illustration-2.svg" alt="Design illustration" loading="lazy" />
         </div>
       </div>
     </section>
@@ -117,7 +132,7 @@
           </div>
           <div class="services">
             <div class="service">
-              <div class="service-icon">🛡️</div>
+              <div class="service-icon" aria-hidden="true">🛡️</div>
               <div class="service-description">
                 <h3>Secure</h3>
                 <p>
@@ -127,7 +142,7 @@
               </div>
             </div>
             <div class="service">
-              <div class="service-icon">🎧</div>
+              <div class="service-icon" aria-hidden="true">🎧</div>
               <div class="service-description">
                 <h3>24/7 Support</h3>
                 <p>
@@ -137,7 +152,7 @@
               </div>
             </div>
             <div class="service">
-              <div class="service-icon">⚙️</div>
+              <div class="service-icon" aria-hidden="true">⚙️</div>
               <div class="service-description">
                 <h3>Customizable</h3>
                 <p>
@@ -147,7 +162,7 @@
               </div>
             </div>
             <div class="service">
-              <div class="service-icon">🔄</div>
+              <div class="service-icon" aria-hidden="true">🔄</div>
               <div class="service-description">
                 <h3>Reliable</h3>
                 <p>
@@ -157,7 +172,7 @@
               </div>
             </div>
             <div class="service">
-              <div class="service-icon">⚡</div>
+              <div class="service-icon" aria-hidden="true">⚡</div>
               <div class="service-description">
                 <h3>Fast</h3>
                 <p>
@@ -167,7 +182,7 @@
               </div>
             </div>
             <div class="service">
-              <div class="service-icon">👤</div>
+              <div class="service-icon" aria-hidden="true">👤</div>
               <div class="service-description">
                 <h3>Easy</h3>
                 <p>
@@ -196,7 +211,7 @@
             <a href="#features" class="learn-more">Learn More</a>
           </div>
           <div class="quality-right">
-            <img src="./assets/hero-screenshot-2.241aac1fbc66db29d873.png" alt="Product Screenshot">
+            <img src="./assets/hero-screenshot-1.png" alt="Product screenshot showing Treact interface" loading="lazy" />
           </div>
         </div>
       </div>
@@ -206,7 +221,7 @@
       <div class="container">
         <div class="row">
           <div class="steps-left">
-            <img src="./assets/hero-screenshot-1.40a097b525c2f8c9808e.png" alt="Laptop Illustration">
+            <img src="./assets/laptop-final.png" alt="Laptop illustration showing Treact website" class="steps-img" loading="lazy" />
           </div>
           <div class="steps-right">
             <div class="label">Steps</div>
@@ -268,7 +283,7 @@
                 </ul>
               </div>
               <div class="plan-footer">
-                <button class="plan-btn teal">Buy Now</button>
+                <button class="plan-btn teal" type="button">Buy Now</button>
               </div>
             </div>
             <div class="plan featured">
@@ -287,7 +302,7 @@
                 </ul>
               </div>
               <div class="plan-footer">
-                <button class="plan-btn white">Buy Now</button>
+                <button class="plan-btn white" type="button">Buy Now</button>
               </div>
             </div>
             <div class="plan">
@@ -306,7 +321,7 @@
                 </ul>
               </div>
               <div class="plan-footer">
-                <button class="plan-btn coral">Buy Now</button>
+                <button class="plan-btn coral" type="button">Buy Now</button>
               </div>
             </div>
           </div>
@@ -318,7 +333,7 @@
       <div class="container">
         <div class="row">
           <figure class="testimonial__description--img">
-            <img src="./assets/love-illustration.svg" alt="" />
+            <img src="./assets/love-illustration.svg" alt="Love illustration" loading="lazy" />
           </figure>
           <div class="testimonials-row">
             <div class="testimonials-header">
@@ -327,7 +342,7 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="testimonial">
-              <div class="stars">★★★★★</div>
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
               <p>
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore."
@@ -335,7 +350,7 @@
 
               <div class="testimonial__bottom">
                 <div class="testimonial-author">
-                  <div class="avatar">CB</div>
+                  <div class="avatar" aria-hidden="true">CB</div>
                   <div class="author-info">
                     <strong>Charlotte Brooke</strong>
                     <span>CEO, SaaS Co</span>
@@ -343,7 +358,7 @@
                 </div>
 
                 <div class="testimonial__buttons">
-                  <button class="testimonial__button">
+                  <button class="testimonial__button" aria-label="Previous testimonial">
                     <svg
                       fill="none"
                       stroke="rgb(100,21,255)"
@@ -356,7 +371,7 @@
                     </svg>
                   </button>
                   <div class="divider"></div>
-                  <button class="testimonial__button">
+                  <button class="testimonial__button" aria-label="Next testimonial">
                     <svg
                       fill="none"
                       stroke="rgb(100,21,255)"
@@ -383,8 +398,8 @@
             <h2>Developers all over the world are happily using Treact.</h2>
           </div>
           <div class="start-buttons">
-            <button class="btn-white" id="cta-start">Get Started</button>
-            <button class="btn-outline-white" id="cta-contact">
+            <button class="btn-white" id="cta-start" type="button">Get Started</button>
+            <button class="btn-outline-white" id="cta-contact" type="button">
               Contact Us
             </button>
           </div>
@@ -404,7 +419,7 @@
           </div>
           <div class="link">
             <h4>Product</h4>
-            <a href="#" class="footer-login">Log In</a>
+            <a href="/login" class="footer-login">Log In</a>
             <a href="#pricing">Personal</a>
             <a href="#pricing">Business</a>
             <a href="#pricing">Team</a>
@@ -438,9 +453,10 @@
           </div>
           <div class="copyright">© 2018 Treact Inc. All Rights Reserved.</div>
           <div class="social-icons">
-            <a href="#">f</a>
-            <a href="#">t</a>
-            <a href="#">▶</a>
+            <!-- Security: External links with rel attributes -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebook">f</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer nofollow" aria-label="Twitter">t</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer nofollow" aria-label="YouTube">▶</a>
           </div>
         </div>
       </div>
