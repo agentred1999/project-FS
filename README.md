@@ -1,6 +1,11 @@
 # Project FE
  #Description: It is an ecommerce website that developed my production skills on the client side of the website 
 This repository documents my hands-on experience building responsive interfaces, implementing interactive functionality, and working with modern frontend technologies.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7a88937d-8f4c-4eb2-8dad-bc7a393f5c95" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07cee2ae-e14a-4380-9ea2-b56d50e9c3f8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7b2ef62a-9378-422f-bd58-62f9e9b1f0a5" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b07ea957-bed9-4ef8-81b5-8094731ece03" />
+<img width="1912" height="299" alt="image" src="https://github.com/user-attachments/assets/97b36db5-2300-4185-9e99-b50f3b6f0640" />
 
 ## 🛠️ Tech Stack
 
