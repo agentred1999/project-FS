@@ -1,4 +1,5 @@
-# Project FE is an ecommerce website that developed my production skills on the lient side of the website 
+# Project FE
+ #Description: It is an ecommerce website that developed my production skills on the client side of the website 
 This repository documents my hands-on experience building responsive interfaces, implementing interactive functionality, and working with modern frontend technologies.
 
 ## 🛠️ Tech Stack
