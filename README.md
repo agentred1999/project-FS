@@ -1,5 +1,5 @@
 # Project FE
- #Description: It is an ecommerce website that developed my production skills on the client side of the website 
+ #Description: It is an react website that helps me develop client side programming there is no backend
 This repository documents my hands-on experience building responsive interfaces, implementing interactive functionality, and working with modern frontend technologies.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7a88937d-8f4c-4eb2-8dad-bc7a393f5c95" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07cee2ae-e14a-4380-9ea2-b56d50e9c3f8" />
